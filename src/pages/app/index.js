@@ -118,7 +118,7 @@ export default function MainApp(){
 
     function getScreen(screen){
         let data  = screens.filter(function(item){
-            return item.screen!==screen
+            return item.screen===screen
         })
         return data
     }
