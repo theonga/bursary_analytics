@@ -37,7 +37,7 @@ export default function MainApp(){
         }).then(res=>{
             setScreens(res.data)
         }).catch(e=>{
-            alert(e.message)
+            alert(e.response.data)
         })
     }
 
@@ -53,7 +53,7 @@ export default function MainApp(){
         }).then(res=>{
             setScholarships(res.data)
         }).catch(e=>{
-            alert(e.message)
+            alert(e.response.data)
         })
     }
 
