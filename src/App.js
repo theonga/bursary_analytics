@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import MainApp from './pages/app';
+import Login from './pages/auth';
+import useData from './hooks/useData';
 
 function App() {
+  const { adminData, setAdminData } = useData();
+  if(!adminData) return(
+    <Login setAdminData={setAdminData}/>
+  )
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route path="/" component={MainApp}  exact/>
+    </Switch>
   );
 }
 
